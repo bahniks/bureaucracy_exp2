@@ -153,9 +153,9 @@ def task(request):
                 participant.reward = data['reward_total']
                 participant.charity_reward = data['charity_total']
                 participant.save()
-                request.session["context"]["charity_absolute"] = int(abs(data['charity_total']) / 10)
+                request.session["context"]["charity_absolute"] = int(abs(data['charity_total']) / 20)
                 request.session["context"]["charity_total"] = data['charity_total']
-                request.session["context"]["reward_total"] = ceil(data['reward_total'] / 10)
+                request.session["context"]["reward_total"] = ceil(data['reward_total'] / 20)
                 request.session.modified = True
             trial = Trial(participant_id = request.session["participantId"], **data)
             trial.save()
